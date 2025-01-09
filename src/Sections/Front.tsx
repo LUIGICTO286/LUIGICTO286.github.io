@@ -67,41 +67,43 @@ export const Front: React.FC = () => {
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
         <div
           ref={bigTextRef}
-          className="text-white sm:text-[4rem] lg:text-[8rem] xl:text-[12rem] font-bold tracking-wide leading-tight"
+          className="text-white text-[8rem] sm:text-[8rem] lg:text-[8rem] xl:text-[12rem] font-bold tracking-wide leading-tight"
         >
           $LUIGI
         </div>
         <div
           ref={smallTextRef}
-          className="text-white sm:text-[2rem] lg:text-[4rem] xl:text-[6rem] font-medium"
+          className="text-white text-[4rem] sm:text-[4rem] lg:text-[4rem] xl:text-[6rem] font-medium"
         >
           Community Takeover on Solana
         </div>
       </div>
 
       {/* Social Links in Bottom Left */}
-      <div className="absolute bottom-0 flex m-4">
-        <Socials />
-      </div>
+      <div className="absolute left-0 bottom-0 flex flex-wrap w-full justify-center sm:justify-between items-center">
+        <div className="flex m-4">
+          <Socials />
+        </div>
 
-      {/* DEX Tools Link in Bottom Right */}
-      <div className="absolute bottom-0 right-4 flex items-center gap-2 m-4">
-        <a
-          href="https://dexscreener.com/solana/awcxgpmbgvhyzgwe4refstfodghhrha12fhyjqbvqeul"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white text-lg flex items-center gap-1 hover:text-red-400 transition duration-300"
-        >
-          <FiExternalLink /> DEX SCREENER
-        </a>
-        <a
-          href="https://www.dextools.io/app/en/token/luigioctoofficial?t=1734470060661"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white text-lg flex items-center gap-1 hover:text-red-400 transition duration-300"
-        >
-          <FiExternalLink /> DEXTools
-        </a>
+        {/* DEX Tools Link in Bottom Right */}
+        <div className="flex items-center gap-2 m-4">
+          <a
+            href="https://dexscreener.com/solana/awcxgpmbgvhyzgwe4refstfodghhrha12fhyjqbvqeul"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white text-lg flex items-center gap-1 hover:text-red-400 transition duration-300"
+          >
+            <FiExternalLink /> DEX SCREENER
+          </a>
+          <a
+            href="https://www.dextools.io/app/en/token/luigioctoofficial?t=1734470060661"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white text-lg flex items-center gap-1 hover:text-red-400 transition duration-300"
+          >
+            <FiExternalLink /> DEXTools
+          </a>
+        </div>
       </div>
     </div>
   );
