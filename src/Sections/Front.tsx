@@ -67,7 +67,7 @@ export const Front: React.FC = () => {
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
         <div
           ref={bigTextRef}
-          className="text-white sm:text-[6rem] lg:text-[12rem] xl:text-[18rem] font-bold tracking-wide leading-tight"
+          className="text-white sm:text-[6rem] lg:text-[12rem] xl:text-[14rem] font-bold tracking-wide leading-tight"
         >
           $LUIGI
         </div>
