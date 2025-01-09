@@ -88,9 +88,9 @@ const Navbar = () => {
       {/* Sidebar for Mobile */}
       <div
         className={classNames(
-          'lg:hidden fixed left-0 top-0 w-full bg-black/40 backdrop-blur-sm z-40 transition-all duration-300 ease-in-out',
+          'lg:hidden fixed left-0 top-0 w-full z-40 transition-all duration-300 ease-in-out',
           {
-            'h-screen opacity-100': isMobileNavOpen,
+            'h-screen bg-black/60 backdrop-blur-sm': isMobileNavOpen,
             'h-0 opacity-0': !isMobileNavOpen,
           }
         )}
