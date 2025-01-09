@@ -73,7 +73,7 @@ export const Front: React.FC = () => {
         </div>
         <div
           ref={smallTextRef}
-          className="text-white text-[4rem] sm:text-[4rem] lg:text-[4rem] xl:text-[6rem] font-medium"
+          className="text-white text-[2rem] sm:text-[4rem] lg:text-[4rem] xl:text-[6rem] font-medium"
         >
           Community Takeover on Solana
         </div>
