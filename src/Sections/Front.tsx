@@ -41,7 +41,7 @@ export const Front: React.FC = () => {
         <div
           className="relative w-full h-full"
           style={{
-            backgroundImage: 'url(./luigi-walk.jpeg)',
+            backgroundImage: 'url(./luigi-walk.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center 40%',
           }}
