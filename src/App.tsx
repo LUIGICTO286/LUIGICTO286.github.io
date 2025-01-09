@@ -13,7 +13,7 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           {/* Fallback Route */}
-          <Route path="*" element={<NotFound />} />             
+          <Route path="*" element={<Home />} />             
         </Route>
       </Routes>
     </Router>

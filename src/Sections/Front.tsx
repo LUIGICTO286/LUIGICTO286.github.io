@@ -41,7 +41,7 @@ export const Front: React.FC = () => {
         <div
           className="relative w-full h-full"
           style={{
-            backgroundImage: 'url(/luigi-walk.jpg)',
+            backgroundImage: 'url(./luigi-walk.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center 40%',
           }}
@@ -67,13 +67,13 @@ export const Front: React.FC = () => {
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
         <div
           ref={bigTextRef}
-          className="text-white sm:text-[6rem] lg:text-[12rem] xl:text-[14rem] font-bold tracking-wide leading-tight"
+          className="text-white sm:text-[4rem] lg:text-[8rem] xl:text-[12rem] font-bold tracking-wide leading-tight"
         >
           $LUIGI
         </div>
         <div
           ref={smallTextRef}
-          className="text-white sm:text-[3rem] lg:text-[6rem] xl:text-[12rem] font-medium"
+          className="text-white sm:text-[2rem] lg:text-[4rem] xl:text-[6rem] font-medium"
         >
           Community Takeover on Solana
         </div>
