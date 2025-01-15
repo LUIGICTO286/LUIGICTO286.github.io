@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
 import App from './App.tsx';
-import './i18n.tsx';
+import './i18n';
 import './index.css';
 
 // Register GSAP plugin globally

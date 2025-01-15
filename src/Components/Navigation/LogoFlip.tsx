@@ -19,10 +19,10 @@ export const LogoFlip: React.FC = () => {
 
   return (
     <div className="flex flex-row items-center justify-center">
-      <div className="perspective-[1200px] relative h-[60px] w-[60px] sm:h-[70px] sm:w-[70px] lg:h-[80px] lg:w-[80px] xl:h-[100px] xl:w-[100px]">
+      <div className="perspective-[1200px] size-auto">
         <div
           ref={logoRef}
-          className="absolute h-full w-full"
+          className="nav-logo-responsive relative"
           style={{
             transformStyle: 'preserve-3d',
             transform: 'rotateY(0deg)',

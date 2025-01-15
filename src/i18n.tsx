@@ -17,7 +17,7 @@ i18n
   .use(initReactI18next) // Bind i18next to React
   .init({
     fallbackLng: 'us', // Default language
-    debug: true, // Enable debugging
+    debug: false,
     interpolation: {
       escapeValue: false, // React already handles escaping
     },

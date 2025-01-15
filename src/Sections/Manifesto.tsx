@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
-import { DownArrowIcon } from '../Components/Icons';
+import { DownArrowIcon } from '../Libraries/Icons';
 import { useTranslation } from 'react-i18next';
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin, ScrollToPlugin);
@@ -71,7 +71,6 @@ export const Manifesto: React.FC = () => {
       false,
       false,
       false,
-      false,
     ]);
   }, [t]); // Re-run when language changes
 
@@ -88,8 +87,9 @@ export const Manifesto: React.FC = () => {
         trigger: containerRef.current,
         start: 'top top',
         end: dynamicEnd,
-        scrub: true,
+        scrub: 0.5,
         pin: true,
+        invalidateOnRefresh: true, // Recalculate on refresh
         markers: false,
         onLeave: () => {
           ScrollTrigger.getById('manifesto-animation')?.kill();
@@ -106,12 +106,10 @@ export const Manifesto: React.FC = () => {
           gsap.to(scrollLayerRef.current, { opacity: 0, duration: 0.5 });
         },
         onUpdate: (self) => {
-          if (self.direction === -1) {
-            // Pause when scrolling back up
+          if (self.direction === 1) {
+            timeline.time(self.progress * timeline.duration());
+          } else if (self.direction === -1) {
             timeline.pause();
-          } else if (self.direction === 1) {
-            // Resume when scrolling down
-            timeline.play();
           }
         },
       },
@@ -165,11 +163,11 @@ export const Manifesto: React.FC = () => {
           .fromTo(
             animationRef.current,
             {
-              text: { value: '' },
+              text: { value: '', delimiter: '' },
               opacity: 1,
             },
             {
-              text: { value: text },
+              text: { value: text, delimiter: '' },
               opacity: 1,
               duration: 2.5,
               ease: 'power2.inOut',
@@ -256,7 +254,7 @@ export const Manifesto: React.FC = () => {
         }
       );
     }
-  }, [isLastCompleted]);
+  }, [isLastCompleted]); // hier muss noch dynamisch der h-screen gestezt werden abhängig von de rgröße wieviel der Text real nun benötigt...
 
   return (
     <div ref={containerRef} className="manifesto-container justify-left relative flex h-screen text-[--text-color]">

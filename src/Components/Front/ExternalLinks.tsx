@@ -1,38 +1,46 @@
 // src/Components/ExternalLinks.tsx
 import { FiExternalLink } from 'react-icons/fi';
-import { DextToolsIcon, DexScreenerIcon } from './Icons';
+import { DextToolsIcon, DexScreenerIcon } from '../../Libraries/Icons';
 
 export const ExternalLinks = () => {
   const externalLinkClass =
-    'flex mx-1 text-[--text-color] text-[1.5rem] sm:text-[2rem] lg:text-[2rem] xl:text-[2rem] hover:text-red-400 hover:scale-110 transition duration-300';
+    'flex items-center mx-2 text-[--text-color] front-social-external-links-responsive hover:text-red-400 hover:scale-110 transition duration-300';
+
+  const iconClass = 'front-social-external-icons-responsive';
 
   return (
     <div className="flex flex-wrap justify-evenly">
+      {/* DEXTOOLS Link */}
       <a
         href="https://www.dextools.io/app/en/token/luigioctoofficial?t=1734470060661"
         target="_blank"
         rel="noopener noreferrer"
         className={externalLinkClass}
       >
-        <DextToolsIcon width={36} height={36} />
-        DEXTOOLS
+        <DextToolsIcon className={iconClass} />
+        <span className="hidden sm:inline">DEXTOOLS</span>
       </a>
+
+      {/* DEXSCREENER Link */}
       <a
         href="https://dexscreener.com/solana/awcxgpmbgvhyzgwe4refstfodghhrha12fhyjqbvqeul"
         target="_blank"
         rel="noopener noreferrer"
         className={externalLinkClass}
       >
-        <DexScreenerIcon width={36} height={36} />
-        DEXSCREENER
+        <DexScreenerIcon className={iconClass} />
+        <span className="hidden sm:inline">DEXSCREENER</span>
       </a>
+
+      {/* GECKOTERMINAL Link */}
       <a
         href="https://www.geckoterminal.com/solana/pools/AWcXGpmBGvhyZgWE4rEfSTFoDgHHrHa12fhyjqBvqeUL"
         target="_blank"
         rel="noopener noreferrer"
         className={externalLinkClass}
       >
-        <FiExternalLink /> GECKOTERMINAL
+        <FiExternalLink className={iconClass} />
+        <span className="hidden sm:inline">GECKOTERMINAL</span>
       </a>
     </div>
   );

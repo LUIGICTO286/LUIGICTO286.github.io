@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { LockIcon } from './Icons.tsx';
+import { LockIcon } from '../../Libraries/Icons.tsx';
 
 type NavLink = {
   to: string;
@@ -40,7 +40,7 @@ export const NavLinks: React.FC<NavLinksProps> = ({ links, onLinkClick }) => {
               onClick={() => {
                 if (!locked && onLinkClick) onLinkClick();
               }}
-              className={`truncate p-1 font-bebas text-[2rem] tracking-wide text-[--text-color] sm:text-[2rem] lg:text-[1.5rem] xl:text-[2rem] ${locked ? ' opacity-50' : ''}`}
+              className={`nav-links-responsive truncate p-1 font-bebas tracking-wide text-[--text-color] ${locked ? ' opacity-50' : ''}`}
               style={{
                 textShadow: isHovered ? '0 0 1px #FFF, 0 0 1px #FFF, 0 0 1px #FFF' : 'none',
                 transform: isHovered ? 'scale(1.25)' : 'scale(1)',

@@ -4,6 +4,15 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      animation: {
+        marquee: 'marquee 10s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
       fontFamily: {
         bebas: ['"Bebas Neue"', 'sans-serif'],
       },
