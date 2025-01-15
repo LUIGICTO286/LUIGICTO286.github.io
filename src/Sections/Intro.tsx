@@ -1,9 +1,9 @@
+// src/Sections/Intro.tsx
+
 import React, { useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import classNames from 'classnames';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const imageSources = [
   'https://tympanus.net/Development/ScrollBasedLayoutAnimations/img/12.jpg',
@@ -22,12 +22,11 @@ export const Intro: React.FC = () => {
     const ctx = gsap.context(() => {
       const gallery = document.querySelector<HTMLElement>('#gallery');
       const middleGrid = document.querySelector<HTMLElement>('.middle-grid');
-      const otherGrids = document.querySelectorAll<HTMLElement>(
-        '.gallery__item:not(.middle-grid)'
-      );
+      const otherGrids = document.querySelectorAll<HTMLElement>('.gallery__item:not(.middle-grid)');
 
+      // Elements not found
       if (!gallery || !middleGrid) {
-        return; // Elements not found
+        return;
       }
 
       // Pin the gallery and handle the middle grid scaling and blur effect
@@ -63,19 +62,13 @@ export const Intro: React.FC = () => {
   return (
     <div>
       {/* Gallery Section */}
-      <div
-        className="grid grid-cols-3 grid-rows-3 w-[100vw] h-[100vh] relative overflow-hidden"
-        id="gallery"
-      >
+      <div className="relative grid h-[100vh] w-[100vw] grid-cols-3 grid-rows-3 overflow-hidden" id="gallery">
         {imageSources.map((image, index) => (
           <div
             key={index}
-            className={classNames(
-              'gallery__item flex items-center justify-center bg-cover bg-center rounded m-5',
-              {
-                'middle-grid z-10': index === 4, // Center grid
-              }
-            )}
+            className={classNames('gallery__item flex items-center justify-center bg-cover bg-center rounded m-5', {
+              'middle-grid z-10': index === 4,
+            })}
             style={{
               backgroundImage: `url(${image})`,
             }}

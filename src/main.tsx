@@ -1,13 +1,19 @@
-//import { StrictMode } from 'react';
+// src/main.tsx
+
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from './App.tsx';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { TextPlugin } from 'gsap/TextPlugin';
+import App from './App.tsx';
+import './i18n.tsx';
+import './index.css';
 
 // Register GSAP plugin globally
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 createRoot(document.getElementById('root')!).render(
+  <StrictMode>
     <App />
+  </StrictMode>
 );

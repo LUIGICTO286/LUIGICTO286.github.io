@@ -1,8 +1,8 @@
+// src/Sections/Roadmap.tsx
+
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface Milestone {
   id: number;
@@ -52,11 +52,7 @@ export const Roadmap: React.FC = () => {
           start: 'top center',
           end: 'center center',
           onEnter: () =>
-            gsap.fromTo(
-              circle,
-              { scale: 0, opacity: 0 },
-              { scale: 1, opacity: 1, duration: 0.8, ease: 'bounce.out' }
-            ),
+            gsap.fromTo(circle, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: 'bounce.out' }),
         });
       }
     });
@@ -65,11 +61,11 @@ export const Roadmap: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col items-center h-[100vh]"
+      className="flex h-[100vh] flex-col items-center"
       style={{ position: 'relative', overflow: 'hidden' }}
     >
       <svg
-        className="w-full max-w-md h-[50vh]"
+        className="h-[50vh] w-full max-w-md"
         style={{ height: milestones[milestones.length - 1].position.y + 50 }}
         viewBox={`0 0 100 ${milestones[milestones.length - 1].position.y + 50}`}
         xmlns="http://www.w3.org/2000/svg"
@@ -83,9 +79,7 @@ export const Roadmap: React.FC = () => {
             <path
               key={`line-${index}`}
               ref={(el) => (lineRefs.current[index - 1] = el)}
-              d={`M ${prev.position.x} ${prev.position.y} L ${
-                milestone.position.x
-              } ${milestone.position.y}`}
+              d={`M ${prev.position.x} ${prev.position.y} L ${milestone.position.x} ${milestone.position.y}`}
               stroke="blue"
               strokeWidth="2"
               fill="none"
@@ -104,12 +98,7 @@ export const Roadmap: React.FC = () => {
               r="5"
               fill="blue"
             />
-            <text
-              x={milestone.position.x + 10}
-              y={milestone.position.y + 5}
-              fill="black"
-              fontSize="8"
-            >
+            <text x={milestone.position.x + 10} y={milestone.position.y + 5} fill="black" fontSize="8">
               {milestone.label}
             </text>
           </g>

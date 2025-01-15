@@ -1,23 +1,23 @@
+// src/Sections/Storyline.tsx
 import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { TextPlugin } from 'gsap/TextPlugin';
 
-gsap.registerPlugin(ScrollTrigger, TextPlugin);
+// Props Interface
+interface StorylineProps {
+  title: string;
+  text: string;
+  visualAlt: string;
+}
 
-export const Storyline: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement       | null>(null);
-  const titleRef     = useRef<HTMLHeadingElement   | null>(null);
-  const textRef      = useRef<HTMLParagraphElement | null>(null);
-  const visualRef    = useRef<HTMLDivElement       | null>(null);
+export const Storyline: React.FC<StorylineProps> = ({ title, text, visualAlt }) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
+  const textRef = useRef<HTMLParagraphElement | null>(null);
+  const visualRef = useRef<HTMLDivElement | null>(null);
 
   useLayoutEffect(() => {
-    if (
-      !containerRef.current ||
-      !titleRef.current ||
-      !textRef.current ||
-      !visualRef.current
-    ) {
+    if (!containerRef.current || !titleRef.current || !textRef.current || !visualRef.current) {
       return;
     }
 
@@ -29,28 +29,26 @@ export const Storyline: React.FC = () => {
     // ScrollTrigger setup
     ScrollTrigger.create({
       trigger: containerRef.current,
-      start: 'top center', 
-      end: '+=100%', 
+      start: 'top center',
+      end: '+=100%',
       scrub: true,
       onEnter: () => {
+        // Animation for title text
+        gsap.to(titleRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 3,
+          ease: 'power1.inOut',
+        });
+
         // Typing effect for text
         gsap.to(textRef.current, {
-          text: {
-            value: textRef.current?.getAttribute('data-full-text') || '',
-          },
+          text: { value: text },
           duration: 3,
           ease: 'power1.inOut',
         });
 
-        // Animation for title text (coming from above with increasing opacity)
-        gsap.to(titleRef.current, {
-          opacity: 1, // Fade in to full opacity
-          y: 0, // Move to its original position (y = 0)
-          duration: 3,
-          ease: 'power1.inOut',
-        });
-
-        // Animation for the visual element (Pump.Fun logo and growth chart)
+        // Animation for the visual element (logo and chart)
         gsap.to(visualRef.current, {
           opacity: 1,
           scale: 1,
@@ -64,36 +62,25 @@ export const Storyline: React.FC = () => {
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
-  }, []);
+  }, [text]);
 
   return (
     <div
-      className="flex h-screen relative overflow-hidden border-4 border-red-500"
+      className="relative flex h-screen overflow-hidden border-4 border-red-500 text-[--secondary-color]"
       ref={containerRef}
     >
-      <div className="storyline w-full flex flex-col items-center justify-center">
-        <h2
-          className="storyline_title text-4xl font-bold mb-4"
-          ref={titleRef}
-          data-full-text="Born in the Trenches"
-        >
-          Born in the Trenches
+      <div className="storyline flex w-full flex-col items-center justify-center">
+        <h2 className="storyline_title mb-4 text-4xl font-bold" ref={titleRef}>
+          {title}
         </h2>
-        <p
-          className="storyline_text text-lg text-center"
-          ref={textRef}
-          data-full-text="Within hours of its launch thru Pump.Fun $LUIGI skyrocketed from literally zero market cap to $70 million."
-        >
+        <p className="storyline_text text-center text-lg" ref={textRef} data-full-text={text}>
           {/* Initial empty content for typing effect */}
         </p>
         <div className="storyline_visual mt-8 flex flex-col items-center" ref={visualRef}>
           {/* Placeholder for Pump.Fun logo */}
-          <div
-            className="w-24 h-24 bg-gray-300 rounded-full mb-4"
-            title="Pump.Fun is a groundbreaking crypto project born from community-driven innovation. [Visit website]"
-          ></div>
+          <div className="mb-4 h-24 w-24 rounded-full bg-gray-300" title={visualAlt}></div>
           {/* Placeholder for growth chart */}
-          <div className="w-60 h-40 bg-gray-200"></div>
+          <div className="h-40 w-60 bg-gray-200"></div>
         </div>
       </div>
     </div>
