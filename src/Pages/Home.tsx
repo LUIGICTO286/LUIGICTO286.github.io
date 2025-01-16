@@ -2,7 +2,7 @@
 // import { Intro }   from '../Sections/Intro.tsx';
 import { Front } from '../Sections/Front.tsx';
 // import { Roadmap } from '../Sections/Roadmap.tsx';
-// import { Story }      from '../Sections/Story.tsx';
+// import { History }      from '../Sections/History.tsx';
 // import { Manifesto } from '../Sections/Manifesto.tsx';
 
 export const Home = () => {
@@ -12,7 +12,7 @@ export const Home = () => {
       {/* <Manifesto />                    */}
       {/* <Intro />                        */}
       {/* <Roadmap />                      */}
-      {/* <Story />                        */}
+      {/* <History />                      */}
     </div>
   );
 };

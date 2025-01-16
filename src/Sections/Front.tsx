@@ -2,8 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { Socials } from '../Components/Front/Socials';
-import { ExternalLinks } from '../Components/Front/ExternalLinks';
+import { Socials } from '../Components/Socials';
 import { useTranslation } from 'react-i18next';
 
 export const Front: React.FC = () => {
@@ -81,9 +80,8 @@ export const Front: React.FC = () => {
       </div>
 
       {/* Social Links in Bottom Left */}
-      <div className="absolute bottom-0 left-0 flex w-full flex-wrap items-center justify-center gap-y-4 px-4 pb-4 lg:justify-between">
+      <div className="absolute bottom-0 left-0 w-full">
         <Socials />
-        <ExternalLinks />
       </div>
     </div>
   );

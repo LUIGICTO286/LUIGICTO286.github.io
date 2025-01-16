@@ -1,6 +1,5 @@
-// src/Components/LogoFlip.tsx
-
 import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 
 export const LogoFlip: React.FC = () => {
@@ -20,36 +19,38 @@ export const LogoFlip: React.FC = () => {
   return (
     <div className="flex flex-row items-center justify-center">
       <div className="perspective-[1200px] size-auto">
-        <div
-          ref={logoRef}
-          className="nav-logo-responsive relative"
-          style={{
-            transformStyle: 'preserve-3d',
-            transform: 'rotateY(0deg)',
-            transformOrigin: 'center',
-          }}
-        >
-          {/* Front Side */}
+        <Link to="/">
           <div
-            className="absolute flex items-center justify-center"
+            ref={logoRef}
+            className="nav-logo-responsive relative"
             style={{
-              backfaceVisibility: 'hidden',
+              transformStyle: 'preserve-3d',
+              transform: 'rotateY(0deg)',
+              transformOrigin: 'center',
             }}
           >
-            <img src="./nft.png" alt="NFT Icon" />
-          </div>
+            {/* Front Side */}
+            <div
+              className="absolute flex items-center justify-center"
+              style={{
+                backfaceVisibility: 'hidden',
+              }}
+            >
+              <img src="./nft.png" alt="NFT Icon" />
+            </div>
 
-          {/* Back Side */}
-          <div
-            className="absolute flex items-center justify-center"
-            style={{
-              backfaceVisibility: 'hidden',
-              transform: 'rotateY(180deg)',
-            }}
-          >
-            <img src="./luigi-icon.png" alt="Luigi Icon" />
+            {/* Back Side */}
+            <div
+              className="absolute flex items-center justify-center"
+              style={{
+                backfaceVisibility: 'hidden',
+                transform: 'rotateY(180deg)',
+              }}
+            >
+              <img src="./luigi-icon.png" alt="Luigi Icon" />
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );
