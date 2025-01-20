@@ -29,12 +29,15 @@ export const NavLinks: React.FC<NavLinksProps> = ({ links, onLinkClick }) => {
             )}
 
             <Link
-              to={locked ? '#' : to} // Default to # if locked, else use the link's target
+              to={locked ? '#' : to} // Default to '#' if locked (no page change happens)
               onClick={(e) => {
-                // Prevent default action if locked
-                e.preventDefault();
-                // Call onLinkClick for both types of actions (scroll or navigate)
-                onLinkClick({ to, label, locked });
+                // Prevent default behavior if the link is locked
+                if (locked) {
+                  e.preventDefault(); // Disable clicking entirely if locked
+                } else {
+                  // Call onLinkClick for both types of actions (scroll or navigate)
+                  onLinkClick({ to, label, locked });
+                }
               }}
               className={`nav-links-responsive truncate p-1 font-bebas tracking-wide text-[--text-color] 
                 ${locked ? 'cursor-not-allowed opacity-50' : 'hover:scale-125 hover:[text-shadow:0_0_1px_#FFF,0_0_1px_#FFF,0_0_1px_#FFF]'} 

@@ -20,6 +20,7 @@ export const ManifestoAnimation: React.FC<ManifestoAnimationProps> = ({ onReveal
   const scrollLayerRef = useRef<HTMLDivElement | null>(null);
   const buttonBackRef = useRef<HTMLButtonElement | null>(null);
   const buttonNextRef = useRef<HTMLButtonElement | null>(null);
+  const buttonFastForwardRef = useRef<HTMLButtonElement | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [manifestoSections, setManifestoSections] = useState<string[]>([]);
@@ -95,8 +96,8 @@ export const ManifestoAnimation: React.FC<ManifestoAnimationProps> = ({ onReveal
   useEffect(() => {
     if (manifestoSections.length > 0 && currentIndex === manifestoSections.length - 1) {
       setIsAnimating(true);
-      if (buttonBackRef.current && buttonNextRef.current) {
-        gsap.to([buttonBackRef.current, buttonNextRef.current], {
+      if (buttonBackRef.current && buttonNextRef.current && buttonFastForwardRef) {
+        gsap.to([buttonBackRef.current, buttonNextRef.current, buttonFastForwardRef.current], {
           opacity: 0,
           duration: 1,
           onComplete: () => {
@@ -156,7 +157,7 @@ export const ManifestoAnimation: React.FC<ManifestoAnimationProps> = ({ onReveal
   }, [currentIndex, manifestoSections, isVisible]); // Dont add isAnimating to dependecies, make infinite loop
 
   const handleReveal = () => {
-    if (containerRef.current && animationFinished) {
+    if (containerRef.current) {
       setIsAnimating(true);
 
       gsap.to(containerRef.current, {
@@ -177,7 +178,6 @@ export const ManifestoAnimation: React.FC<ManifestoAnimationProps> = ({ onReveal
     }
   };
 
-  // Handle button click to update currentIndex
   const handleNext = () => {
     if (currentIndex < manifestoSections.length - 1 && !isAnimating) {
       setCurrentIndex((prev) => prev + 1);
@@ -235,6 +235,18 @@ export const ManifestoAnimation: React.FC<ManifestoAnimationProps> = ({ onReveal
             }}
             className="mb-16 rounded-3xl bg-gray-200 px-4 py-2 hover:bg-gray-300 disabled:opacity-50"
           >
+            <NextIcon width={36} height={36} />
+          </button>
+          <button
+            ref={buttonFastForwardRef}
+            onClick={handleReveal}
+            disabled={currentIndex === manifestoSections.length - 1 || isAnimating}
+            style={{
+              boxShadow: '0 0 5px #000, 0 0 5px #000, 0 0 5px #000',
+            }}
+            className="mb-16 flex flex-row rounded-3xl bg-gray-200 px-4 py-2 hover:bg-gray-300 disabled:opacity-50"
+          >
+            <NextIcon width={36} height={36} />
             <NextIcon width={36} height={36} />
           </button>
         </div>
