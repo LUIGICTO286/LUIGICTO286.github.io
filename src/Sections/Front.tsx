@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { Socials } from '../Components/Socials';
 import { useTranslation } from 'react-i18next';
 
 export const Front: React.FC = () => {
@@ -38,22 +37,19 @@ export const Front: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative h-screen w-full">
-      {/* Centered Image with Fading Effect */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div
-          className="absolute h-full w-full"
-          style={{
-            backgroundImage: 'url(./luigi-walk.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center 40%',
-          }}
-        >
-          {/* Gradient overlay on the image */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: `
+    /* Centered Image with Fading Effect */
+    <div
+      className="relative inset-0 flex h-screen w-full flex-col items-center justify-center text-center"
+      style={{
+        backgroundImage: 'url(./luigi-walk.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 40%',
+      }}
+    >
+      <div
+        className="absolute left-0 top-0 h-full w-full"
+        style={{
+          background: `
                 radial-gradient(
                   ellipse at center, 
                   rgba(0, 0, 0, 0) 20%, /* Bright center */
@@ -61,27 +57,27 @@ export const Front: React.FC = () => {
                   rgba(0, 0, 0, 1) 100% /* Very dark at the outermost edges */
                 )
               `,
-            }}
-          ></div>
-        </div>
-      </div>
+        }}
+      ></div>
 
       {/* Animated Text */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-        <div ref={bigTextRef} className="text-[8rem] text-[--text-color] sm:text-[8rem] lg:text-[8rem] xl:text-[12rem]">
-          $LUIGI
-        </div>
-        <div
-          ref={smallTextRef}
-          className="text-[2rem] text-[--text-color] sm:text-[4rem] lg:text-[4rem] xl:text-[6rem]"
-        >
-          {t('front.front')}
-        </div>
+      <div
+        ref={bigTextRef}
+        style={{
+          textShadow: '0 0 10px #000, 0 0 10px #000, 0 0 10px #000',
+        }}
+        className="font-[VT323] text-[8rem] text-[--text-color] sm:text-[8rem] lg:text-[8rem] xl:text-[12rem]"
+      >
+        $LUIGI
       </div>
-
-      {/* Social Links in Bottom Left */}
-      <div className="absolute bottom-0 left-0 w-full">
-        <Socials />
+      <div
+        ref={smallTextRef}
+        style={{
+          textShadow: '0 0 10px #000, 0 0 10px #000, 0 0 10px #000',
+        }}
+        className="font-[VT323] text-[2rem] text-[--text-color] sm:text-[4rem] lg:text-[4rem] xl:text-[6rem]"
+      >
+        {t('front.front')}
       </div>
     </div>
   );

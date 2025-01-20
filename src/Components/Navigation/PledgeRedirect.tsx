@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SolanaIcon } from '../../Libraries/Icons';
 
 interface PledgeProps {
@@ -7,21 +7,12 @@ interface PledgeProps {
 }
 
 export const PledgeRedirect: React.FC<PledgeProps> = ({ onClick, label = 'Pledge' }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <button
       onClick={onClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className={
-        'nav-links-responsive flex items-center justify-center space-x-2 p-1 font-bebas tracking-wide hover:scale-125'
-      }
-      style={{
-        textShadow: isHovered ? '0 0 1px #FFF, 0 0 1px #FFF, 0 0 1px #FFF' : 'none',
-        transform: isHovered ? 'scale(1.25)' : 'scale(1)',
-        transition: 'transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out',
-      }}
+      className={`nav-links-responsive duration-30 flex transform items-center justify-center space-x-2 truncate p-1 text-center 
+      font-bebas tracking-wide text-[--text-color] transition-transform ease-in-out 
+      hover:scale-125 hover:[text-shadow:0_0_1px_#FFF,0_0_1px_#FFF,0_0_1px_#FFF]`}
     >
       <SolanaIcon stroke="var(--text-color)" className="nav-language-responsive" />
       <span>{label}</span>

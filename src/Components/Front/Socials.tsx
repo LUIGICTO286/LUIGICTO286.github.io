@@ -4,9 +4,9 @@ import { XIcon, TensorIcon } from '../../Libraries/Icons';
 
 export const Socials = () => {
   const socialLinkClass =
-    'flex items-center mx-2 text-[--text-color] front-social-external-links-responsive hover:text-red-400 hover:scale-110 transition duration-300';
+    'flex items-center mx-2 text-[--text-color] social-external-links-responsive hover:text-red-400 hover:scale-110 transition duration-300';
 
-  const iconClass = 'front-social-external-icons-responsive';
+  const iconClass = 'social-external-icons-responsive';
 
   return (
     <div className="flex flex-wrap justify-evenly">

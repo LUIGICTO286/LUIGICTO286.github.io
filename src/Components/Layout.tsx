@@ -1,12 +1,14 @@
 import { Navbar } from './Navigation/Navbar';
 // import Footer from './Footer';
 import { Outlet } from 'react-router-dom';
+import { Socials } from '../Components/Socials';
 
 export const Layout = () => {
   return (
     <div>
       <Navbar />
       <Outlet />
+      <Socials />
     </div>
   );
 };

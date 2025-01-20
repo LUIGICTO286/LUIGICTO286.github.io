@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 @layer utilities {
-  .front-social-external-links-responsive {
+  .social-external-links-responsive {
     @apply text-sm sm:text-lg md:text-xl lg:text-2xl;
   }
-  .front-social-external-icons-responsive {
+  .social-external-icons-responsive {
     @apply w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11;
   }  
   .nav-icons-responsive {

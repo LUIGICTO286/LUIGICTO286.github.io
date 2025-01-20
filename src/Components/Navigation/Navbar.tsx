@@ -13,13 +13,29 @@ export const Navbar = () => {
 
   const navLinks = [
     { to: '/', label: 'Home', locked: false },
-    { to: '/Manifesto', label: 'Manifesto', locked: true },
+    { to: '#manifesto', label: 'Manifesto', locked: false },
     { to: '/History', label: 'History', locked: true },
     { to: '/Roadmap', label: 'Roadmap', locked: true },
     { to: '/how-to-buy', label: 'How to buy', locked: true },
   ];
 
-  const handleRedirect = () => {
+  const scrollToSection = (id: string) => {
+    const section = document.querySelector(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleRedirect = (link: { to: string; label: string; locked: boolean }) => {
+    if (link.to.startsWith('#')) {
+      scrollToSection(link.to);
+    } else {
+      window.location.href = link.to;
+    }
+    setIsMobileNavOpen(false);
+  };
+
+  const pledgeRedirect = () => {
     window.location.href = 'https://luigi-donation-dash.netlify.app/';
   };
 
@@ -55,11 +71,11 @@ export const Navbar = () => {
           <LogoFlip />
 
           <div className="hidden lg:flex">
-            <NavLinks links={navLinks} />
+            <NavLinks links={navLinks} onLinkClick={handleRedirect} />
           </div>
 
           <div className="flex items-center justify-center">
-            <PledgeRedirect onClick={handleRedirect} label="Pledge" />
+            <PledgeRedirect onClick={pledgeRedirect} label="Pledge" />
           </div>
 
           <div className="flex items-center">
@@ -83,11 +99,12 @@ export const Navbar = () => {
         })}
       >
         <div className="flex h-full flex-col items-center justify-center space-y-4">
-          <NavLinks links={navLinks} onLinkClick={() => setIsMobileNavOpen(false)} />
+          <NavLinks
+            links={navLinks}
+            onLinkClick={handleRedirect} // Use the same handler here for mobile
+          />
         </div>
       </div>
     </>
   );
 };
-
-// TODO for

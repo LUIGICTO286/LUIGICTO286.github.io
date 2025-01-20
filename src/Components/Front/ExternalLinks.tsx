@@ -4,9 +4,9 @@ import { DextToolsIcon, DexScreenerIcon } from '../../Libraries/Icons';
 
 export const ExternalLinks = () => {
   const externalLinkClass =
-    'flex items-center mx-2 text-[--text-color] front-social-external-links-responsive hover:text-red-400 hover:scale-110 transition duration-300';
+    'flex items-center mx-2 text-[--text-color] social-external-links-responsive hover:text-red-400 hover:scale-110 transition duration-300';
 
-  const iconClass = 'front-social-external-icons-responsive';
+  const iconClass = 'social-external-icons-responsive';
 
   return (
     <div className="flex flex-wrap justify-evenly">
