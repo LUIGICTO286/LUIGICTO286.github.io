@@ -39,7 +39,7 @@ export const Socials: React.FC = () => {
       label: 'TIKTOK',
     },
     {
-      href: 'discord.gg/luigisol',
+      href: 'https://www.discord.gg/luigisol',
       icon: <FaDiscord className={iconClass} />,
       label: 'DISCORD',
     },
