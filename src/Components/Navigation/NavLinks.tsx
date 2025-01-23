@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { LockIcon } from '../../Libraries/Icons.tsx';
 
 type NavLink = {
@@ -10,10 +10,25 @@ type NavLink = {
 
 type NavLinksProps = {
   links: NavLink[];
-  onLinkClick: (link: NavLink) => void; // Handling the link click logic here
 };
 
-export const NavLinks: React.FC<NavLinksProps> = ({ links, onLinkClick }) => {
+export const NavLinks: React.FC<NavLinksProps> = ({ links }) => {
+  const navigate = useNavigate(); // Initialize the navigate hook
+
+  const handleRedirect = (link: { to: string; label: string; locked: boolean }) => {
+    if (link.to.startsWith('#')) {
+      const sectionId = link.to.slice(1);
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' }); // Scroll to the section
+      } else {
+        navigate('/manifesto'); // Fallback navigation if the section doesn't exist
+      }
+    } else {
+      navigate(link.to); // Use navigate for regular page routes
+    }
+  };
+
   return (
     <div className="flex flex-col items-center space-y-4 lg:flex-row lg:space-x-6 lg:space-y-0">
       {links.map(({ to, label, locked }) => {
@@ -35,13 +50,13 @@ export const NavLinks: React.FC<NavLinksProps> = ({ links, onLinkClick }) => {
                 if (locked) {
                   e.preventDefault(); // Disable clicking entirely if locked
                 } else {
-                  // Call onLinkClick for both types of actions (scroll or navigate)
-                  onLinkClick({ to, label, locked });
+                  // Call handleRedirect for both types of actions (scroll or navigate)
+                  handleRedirect({ to, label, locked });
                 }
               }}
               className={`nav-links-responsive truncate p-1 font-bebas text-[--text-color] 
                 ${locked ? 'cursor-not-allowed opacity-50' : 'hover:scale-125 '} 
-                transform transition-transform duration-300 ease-in-out `}
+                transform transition-transform duration-300 ease-in-out`}
             >
               {label}
             </Link>
