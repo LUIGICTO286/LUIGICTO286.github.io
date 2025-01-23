@@ -21,7 +21,7 @@ export const Navbar = () => {
     { to: '/history', label: t('navigation.history'), locked: true },
     { to: '/roadmap', label: t('navigation.roadmap'), locked: true },
     { to: '/how-to-buy', label: t('navigation.howtobuy'), locked: true },
-    { to: '/whitepaper', label: t('navigation.whitepaper'), locked: false },
+    { to: '/whitepaper', label: t('navigation.whitepaper'), locked: true },
   ];
 
   const handleRedirect = (link: { to: string; label: string; locked: boolean }) => {
