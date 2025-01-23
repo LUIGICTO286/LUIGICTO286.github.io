@@ -39,8 +39,8 @@ export const NavLinks: React.FC<NavLinksProps> = ({ links, onLinkClick }) => {
                   onLinkClick({ to, label, locked });
                 }
               }}
-              className={`nav-links-responsive truncate p-1 font-bebas tracking-wide text-[--text-color] 
-                ${locked ? 'cursor-not-allowed opacity-50' : 'hover:scale-125 hover:[text-shadow:0_0_1px_#FFF,0_0_1px_#FFF,0_0_1px_#FFF]'} 
+              className={`nav-links-responsive truncate p-1 font-bebas text-[--text-color] 
+                ${locked ? 'cursor-not-allowed opacity-50' : 'hover:scale-125 '} 
                 transform transition-transform duration-300 ease-in-out `}
             >
               {label}

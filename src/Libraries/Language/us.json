@@ -1,4 +1,13 @@
 {
+  "navigation":{
+    "pledge": "Pledge",
+    "home": "Home",
+    "manifesto": "Manifesto",
+    "history": "History",
+    "roadmap": "Roadmap",
+    "howtobuy": "How to buy",
+    "whitepaper": "Whitepaper"
+  },
 	"front": {
 		"front": "COMMUNITY TAKEOVER ON SOLANA"
 	},

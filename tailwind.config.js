@@ -15,6 +15,7 @@ export default {
       },
       fontFamily: {
         bebas: ['"Bebas Neue"', 'sans-serif'],
+        jersey: ['"Jersey 15"', 'sans-serif'],
       },
       flip: 'flip 2s infinite linear',
     },

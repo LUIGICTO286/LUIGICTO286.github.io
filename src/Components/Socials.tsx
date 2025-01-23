@@ -71,7 +71,7 @@ export const Socials: React.FC = () => {
     {
       href: 'https://coinmarketcap.com/de/currencies/luigi-mangione/',
       icon: <CoinMarketCapIcon className={iconClass} />,
-      label: 'COINMARKETCAP',
+      label: 'COINMARKETAP',
     },
     {
       href: 'https://www.dextools.io/app/en/token/luigioctoofficial?t=1734470060661',

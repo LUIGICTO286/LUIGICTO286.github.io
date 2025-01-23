@@ -39,7 +39,7 @@ export const Front: React.FC = () => {
   return (
     /* Centered Image with Fading Effect */
     <div
-      className="relative inset-0 flex h-screen w-full flex-col items-center justify-center text-center"
+      className="relative inset-0 flex h-screen w-full flex-col items-center justify-end text-center"
       style={{
         backgroundImage: 'url(./luigi-walk.png)',
         backgroundSize: 'cover',
@@ -61,7 +61,7 @@ export const Front: React.FC = () => {
       ></div>
 
       {/* Animated Text */}
-      <div
+      <h1
         ref={bigTextRef}
         style={{
           textShadow: '0 0 10px #000, 0 0 10px #000, 0 0 10px #000',
@@ -69,7 +69,7 @@ export const Front: React.FC = () => {
         className="font-[VT323] text-[8rem] text-[--text-color] sm:text-[8rem] lg:text-[8rem] xl:text-[12rem]"
       >
         $LUIGI
-      </div>
+      </h1>
       <div
         ref={smallTextRef}
         style={{
