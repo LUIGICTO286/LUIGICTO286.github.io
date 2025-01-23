@@ -8,7 +8,7 @@ export const LogoFlip: React.FC = () => {
   const bgColor = 'bg-yellow-700';
   const minZ = 1;
   const maxZ = 5;
-  const steps = 10;
+  const steps = 20;
 
   const edgeLayers = Array.from({ length: steps }, (_, i) => minZ + ((maxZ - minZ) / (steps - 1)) * i);
 

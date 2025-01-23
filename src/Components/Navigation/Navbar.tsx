@@ -46,38 +46,36 @@ export const Navbar = () => {
   }, [prevScrollY]);
 
   return (
-    <>
-      <nav
-        className={classNames(
-          'fixed w-full top-0 left-0 z-50 bg-black/40 backdrop-blur-sm shadow-xl transition-transform duration-300 ease-in-out',
-          { '-translate-y-[100%]': !scrollingUp, 'translate-y-0': scrollingUp }
-        )}
-        style={{ color: 'var(--text-color)', fontFamily: 'Bebas-Neue' }}
-      >
-        <div className="container mx-auto flex flex-wrap items-center justify-evenly gap-4">
-          <LogoFlip />
+    <nav
+      className={classNames(
+        'fixed w-full top-0 left-0 z-50 bg-black/40 backdrop-blur-sm shadow-xl transition-transform duration-300 ease-in-out',
+        { '-translate-y-[100%]': !scrollingUp, 'translate-y-0': scrollingUp }
+      )}
+      style={{ color: 'var(--text-color)', fontFamily: 'Bebas-Neue' }}
+    >
+      <div className="container mx-auto flex flex-wrap items-center justify-evenly gap-4">
+        <LogoFlip />
 
-          <div className="hidden lg:flex">
-            <NavLinks links={navLinks} />
-          </div>
-
-          <div className="flex items-center justify-center">
-            <PledgeRedirect onClick={pledgeRedirect} />
-          </div>
-
-          <div className="flex items-center">
-            <LanguageSwitcher />
-          </div>
-
-          <button className="lg:hidden" onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}>
-            {isMobileNavOpen ? (
-              <CloseIcon className="nav-icons-responsive" stroke="var(--text-color)" />
-            ) : (
-              <HamburgerIcon className="nav-icons-responsive" stroke="var(--text-color)" />
-            )}
-          </button>
+        <div className="hidden lg:flex">
+          <NavLinks links={navLinks} />
         </div>
-      </nav>
+
+        <div className="flex items-center justify-center">
+          <PledgeRedirect onClick={pledgeRedirect} />
+        </div>
+
+        <div className="flex items-center">
+          <LanguageSwitcher />
+        </div>
+
+        <button className="lg:hidden" onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}>
+          {isMobileNavOpen ? (
+            <CloseIcon className="nav-icons-responsive" stroke="var(--text-color)" />
+          ) : (
+            <HamburgerIcon className="nav-icons-responsive" stroke="var(--text-color)" />
+          )}
+        </button>
+      </div>
 
       <div
         className={classNames('lg:hidden fixed left-0 top-0 w-full z-40 transition-all duration-300 ease-in-out', {
@@ -85,10 +83,10 @@ export const Navbar = () => {
           'h-0 opacity-0 cursor-default': !isMobileNavOpen,
         })}
       >
-        <div className="flex h-full flex-col items-center justify-center space-y-4">
+        <div className="flex h-full flex-col items-center justify-center space-y-4 font-[Jersey]">
           <NavLinks links={navLinks} />
         </div>
       </div>
-    </>
+    </nav>
   );
 };

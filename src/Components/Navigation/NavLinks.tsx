@@ -30,10 +30,10 @@ export const NavLinks: React.FC<NavLinksProps> = ({ links }) => {
   };
 
   return (
-    <div className="flex flex-col items-center space-y-4 lg:flex-row lg:space-x-6 lg:space-y-0">
+    <div className="flex flex-col  items-center space-y-4 font-[Jersey] lg:flex-row lg:space-x-6 lg:space-y-0">
       {links.map(({ to, label, locked }) => {
         return (
-          <div key={to} className="group relative flex flex-col items-center">
+          <div key={to} className="relative flex flex-col items-center">
             {locked && (
               <LockIcon
                 width={24}
@@ -44,19 +44,17 @@ export const NavLinks: React.FC<NavLinksProps> = ({ links }) => {
             )}
 
             <Link
-              to={locked ? '#' : to} // Default to '#' if locked (no page change happens)
+              to={locked ? '' : to}
               onClick={(e) => {
-                // Prevent default behavior if the link is locked
                 if (locked) {
-                  e.preventDefault(); // Disable clicking entirely if locked
+                  e.preventDefault();
                 } else {
-                  // Call handleRedirect for both types of actions (scroll or navigate)
                   handleRedirect({ to, label, locked });
                 }
               }}
               className={`nav-links-responsive truncate p-1 font-bebas text-[--text-color] 
                 ${locked ? 'cursor-not-allowed opacity-50' : 'hover:scale-125 '} 
-                transform transition-transform duration-300 ease-in-out`}
+                transform transition-transform duration-300 ease-in-out `}
             >
               {label}
             </Link>
