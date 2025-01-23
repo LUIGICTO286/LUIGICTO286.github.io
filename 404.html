@@ -1,38 +1,10 @@
 <!-- public/404.html -->
 <html>
   <head>
+    <meta http-equiv="refresh" content="0; url=./index.html" />
     <script type="text/javascript">
-      // Function to determine the redirection path based on current URL
-      function redirectBasedOnPath() {
-        // Get the current pathname
-        const path = window.location.pathname.toLowerCase();
-
-        // Extract path without the leading slash
-        const trimmedPath = path.startsWith('/') ? path.slice(1) : path;
-
-        // Define redirection rules
-        switch (trimmedPath) {
-          case 'manifesto':
-            window.location.replace('./manifesto');
-            break;
-          case 'whitepaper':
-            window.location.replace('./whitepaper');
-            break;
-          case '': // Redirect to home if empty after trimming
-            window.location.replace('./');
-            break;
-          default:
-            // Redirect to the React app entry point for React Router to handle
-            window.location.replace('./');
-            break;
-        }
-      }
-
-      // Execute the function on page load
-      redirectBasedOnPath();
+      window.location.replace('./');
     </script>
   </head>
-  <body>
-    <!-- Optional: Display a loading message or animation while redirection occurs -->
-  </body>
+  <body></body>
 </html>
