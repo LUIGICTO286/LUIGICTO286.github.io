@@ -1,5 +1,4 @@
 // src/Pages/Whitepaper.tsx
-import { AnimatedCircle } from '../Components/AnimatedCircle/AnimatedCircle';
 import { FaCoins, FaHandshake, FaHeart, FaMedkit, FaBullhorn } from 'react-icons/fa'; // Importing icons
 
 export const Whitepaper = () => {
@@ -8,7 +7,7 @@ export const Whitepaper = () => {
   const h2FontSizes = 'text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] xl:text-[3.25rem]'; // Section headers, smaller than h1
   const h3FontSizes = 'text-[1.5rem] sm:text-[2rem] lg:text-[2.5rem] xl:text-[3rem]'; // Sub-section headers
   // const backgroundFade = 'bg-gradient-to-r from-green-400 via-blue-500 to-purple-600';
-  const cardShdaow = '';
+  // const cardShdaow = '';
 
   return (
     <div className="mt-[25vh] flex h-fit flex-col items-center justify-center px-4 text-left font-sans text-[--text-color] sm:px-8 lg:px-20">
@@ -90,7 +89,6 @@ export const Whitepaper = () => {
                 <p className={`${pFontSizes} mb-2 text-white`}>
                   <strong>Current Supply:</strong> 999,946,063.07
                 </p>
-                <AnimatedCircle size={300} duration={5} borderColor="green" />
               </div>
             </div>
 

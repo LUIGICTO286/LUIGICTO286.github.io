@@ -6,12 +6,14 @@ import { PledgeRedirect } from './PledgeRedirect';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { HamburgerIcon, CloseIcon } from '../../Libraries/Icons';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
   const { t } = useTranslation();
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [scrollingUp, setScrollingUp] = useState(true);
   const [prevScrollY, setPrevScrollY] = useState(0);
+  const navigate = useNavigate();
 
   const navLinks = [
     { to: '/', label: t('navigation.home'), locked: false },
@@ -22,29 +24,17 @@ export const Navbar = () => {
     { to: '/whitepaper', label: t('navigation.whitepaper'), locked: false },
   ];
 
-  const scrollToSection = (id: string) => {
-    const section = document.querySelector(id);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const handleRedirect = (link: { to: string; label: string; locked: boolean }) => {
     if (link.to.startsWith('#')) {
-      // Check if the section exists on the current page
-      const sectionId = link.to.slice(1); // Remove the '#' to get the ID
+      const sectionId = link.to.slice(1);
       const section = document.getElementById(sectionId);
-
       if (section) {
-        // Scroll to the section if it exists
         section.scrollIntoView({ behavior: 'smooth' });
       } else {
-        // Redirect to a different page if the section doesn't exist
-        window.location.href = '/manifesto';
+        navigate('/manifesto');
       }
     } else {
-      // Regular navigation for other links
-      window.location.href = link.to;
+      navigate(link.to); // Use navigate instead of window.location.href
     }
     setIsMobileNavOpen(false);
   };
