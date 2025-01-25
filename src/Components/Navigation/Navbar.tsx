@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import classNames from 'classnames';
 import { NavLinks } from './NavLinks';
 import { LogoFlip } from './LogoFlip';
 import { PledgeRedirect } from './PledgeRedirect';
@@ -18,7 +17,7 @@ export const Navbar = () => {
     { to: '/manifesto', label: t('navigation.manifesto'), locked: false },
     { to: '/history', label: t('navigation.history'), locked: true },
     { to: '/roadmap', label: t('navigation.roadmap'), locked: true },
-    { to: '/how-to-buy', label: t('navigation.howtobuy'), locked: true },
+    { to: '/how-to-buy', label: t('navigation.howtobuy'), locked: false },
     { to: '/whitepaper', label: t('navigation.whitepaper'), locked: false },
   ];
 
@@ -46,47 +45,46 @@ export const Navbar = () => {
   }, [prevScrollY]);
 
   return (
-    <nav
-      className={classNames(
-        'fixed w-full top-0 left-0 z-50 bg-black/40 backdrop-blur-sm shadow-xl transition-transform duration-300 ease-in-out',
-        { '-translate-y-[100%]': !scrollingUp, 'translate-y-0': scrollingUp }
-      )}
-      style={{ color: 'var(--text-color)', fontFamily: 'Bebas-Neue' }}
-    >
-      <div className="container mx-auto flex flex-wrap items-center justify-evenly gap-4">
-        <LogoFlip />
+    <>
+      <nav
+        className={`fixed left-0 top-0 z-20 w-full bg-black/40 font-bebas text-[--text-color] shadow-xl backdrop-blur-sm transition-transform duration-300 ease-in-out ${
+          scrollingUp ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
+        <div className="container mx-auto flex flex-wrap items-center justify-evenly gap-4">
+          <LogoFlip />
 
-        <div className="hidden lg:flex">
-          <NavLinks links={navLinks} />
+          <div className="hidden lg:flex">
+            <NavLinks links={navLinks} />
+          </div>
+
+          <div className="flex items-center justify-center">
+            <PledgeRedirect onClick={pledgeRedirect} />
+          </div>
+
+          <div className="flex items-center">
+            <LanguageSwitcher />
+          </div>
+
+          <button className="lg:hidden" onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}>
+            {isMobileNavOpen ? (
+              <CloseIcon className="nav-icons-responsive" stroke="var(--text-color)" />
+            ) : (
+              <HamburgerIcon className="nav-icons-responsive" stroke="var(--text-color)" />
+            )}
+          </button>
         </div>
-
-        <div className="flex items-center justify-center">
-          <PledgeRedirect onClick={pledgeRedirect} />
-        </div>
-
-        <div className="flex items-center">
-          <LanguageSwitcher />
-        </div>
-
-        <button className="lg:hidden" onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}>
-          {isMobileNavOpen ? (
-            <CloseIcon className="nav-icons-responsive" stroke="var(--text-color)" />
-          ) : (
-            <HamburgerIcon className="nav-icons-responsive" stroke="var(--text-color)" />
-          )}
-        </button>
-      </div>
+      </nav>
 
       <div
-        className={classNames('lg:hidden fixed left-0 top-0 w-full z-40 transition-all duration-300 ease-in-out', {
-          'h-screen bg-black/40 backdrop-blur-sm': isMobileNavOpen,
-          'h-0 opacity-0 cursor-default': !isMobileNavOpen,
-        })}
+        className={`fixed left-0 top-0 z-10 w-full transition-all duration-300 ease-in-out lg:hidden ${
+          isMobileNavOpen ? 'h-screen bg-black/40 opacity-100 backdrop-blur-sm' : 'pointer-events-none h-0 opacity-0'
+        }`}
       >
         <div className="flex h-full flex-col items-center justify-center space-y-4 font-[Jersey]">
-          <NavLinks links={navLinks} />
+          <NavLinks onClick={() => {setIsMobileNavOpen(false)}} links={navLinks} />
         </div>
       </div>
-    </nav>
+    </>
   );
 };

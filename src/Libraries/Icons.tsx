@@ -267,6 +267,22 @@ export const NextIcon: React.FC<IconProps> = ({ width = 24, height = 24, stroke 
   </svg>
 );
 
+export const PrevIcon: React.FC<IconProps> = ({ width = 24, height = 24, stroke = 'currentColor', className = '' }) => (
+  <svg
+    width={width}
+    height={height}
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    fill={stroke}
+    className={className + ' rotate-180'}
+  >
+    <g>
+      <path d="M10,3H4v18h6v-2h2v-2h2v-2h2v-1h1v-4h-1V9h-2V7h-2V5h-2 M12,13v2h-2v2H8v2H6V5h2v2h2v2h2v2h2v2H12z" />
+      <rect x="18" y="3" width="2" height="18" />
+    </g>
+  </svg>
+);
+
 export const XiaohongshuIcon: React.FC<IconProps> = ({
   width = 24,
   height = 24,

@@ -5,8 +5,10 @@ import { Layout } from './Components/Layout';
 import { Home } from './Pages/Home';
 import { Whitepaper } from './Pages/Whitepaper';
 import { Manifesto } from './Pages/Manifesto';
+import HowToBuy from './Pages/HowToBuy/HowToBuy';
 import { NotFound } from './Pages/NotFound';
 import './index.css';
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/how-to-buy" element={<HowToBuy />} />
           <Route path="/whitepaper" element={<Whitepaper />} />
           <Route path="/manifesto" element={<Manifesto />} />
           {/* Fallback Route */}

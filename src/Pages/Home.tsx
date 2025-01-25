@@ -1,5 +1,4 @@
 // src/Pages/Home.tsx
-// import { Intro } from '../Sections/Intro.tsx';
 import { Front } from '../Sections/Front.tsx';
 import { ContractAddress } from '../Sections/ContractAddress.tsx';
 // import { Roadmap } from '../Sections/Roadmap.tsx';
@@ -12,7 +11,6 @@ export const Home = () => {
       <Front />
       <ContractAddress />
       <Manifesto />
-      {/* <Intro />                        */}
       {/* <Roadmap />                      */}
       {/* <History />                      */}
     </div>

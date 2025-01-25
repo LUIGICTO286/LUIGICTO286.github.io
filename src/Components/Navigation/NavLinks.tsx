@@ -10,9 +10,13 @@ type NavLink = {
 
 type NavLinksProps = {
   links: NavLink[];
+  onClick?: () => void;
 };
 
-export const NavLinks: React.FC<NavLinksProps> = ({ links }) => {
+export const NavLinks: React.FC<NavLinksProps> = ({ 
+  links, 
+  onClick
+}) => {
   const navigate = useNavigate(); // Initialize the navigate hook
 
   const handleRedirect = (link: { to: string; label: string; locked: boolean }) => {
@@ -49,6 +53,7 @@ export const NavLinks: React.FC<NavLinksProps> = ({ links }) => {
                 if (locked) {
                   e.preventDefault();
                 } else {
+                  onClick && onClick();
                   handleRedirect({ to, label, locked });
                 }
               }}
