@@ -47,7 +47,7 @@ export const Front: React.FC = () => {
         backgroundPosition: 'center 40%',
       }}
     >
-      <div className="z-40 mb-32">
+      <div className=" z-10 mb-32">
         {/* Animated Text */}
         <h1
           ref={bigTextRef}

@@ -47,7 +47,7 @@ export const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed left-0 top-0 z-20 w-full bg-black/40 font-bebas text-[--text-color] shadow-xl backdrop-blur-sm transition-transform duration-300 ease-in-out ${
+        className={`fixed left-0 top-0 z-50 w-full bg-black/40 font-bebas text-[--text-color] shadow-xl backdrop-blur-sm transition-transform duration-300 ease-in-out ${
           scrollingUp ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
@@ -77,7 +77,7 @@ export const Navbar = () => {
       </nav>
 
       <div
-        className={`fixed left-0 top-0 z-10 w-full transition-all duration-300 ease-in-out lg:hidden ${
+        className={`fixed left-0 top-0 z-40 w-full transition-all duration-300 ease-in-out lg:hidden ${
           isMobileNavOpen ? 'h-screen bg-black/40 opacity-100 backdrop-blur-sm' : 'pointer-events-none h-0 opacity-0'
         }`}
       >

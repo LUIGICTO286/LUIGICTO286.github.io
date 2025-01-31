@@ -50,7 +50,7 @@ export const ContractAddress = () => {
         {/* Success Message with Fade-Out Effect */}
         {copySuccess && (
           <span
-            className={`absolute z-50 w-2/4 rounded-xl bg-white p-4 font-[VT323] text-sm shadow-xl ${copySuccess === 'Copied!' ? 'text-green-500' : 'text-red-500'}`}
+            className={`absolute w-2/4 rounded-xl bg-white p-4 font-[VT323] text-sm shadow-xl ${copySuccess === 'Copied!' ? 'text-green-500' : 'text-red-500'}`}
           >
             {copySuccess}
           </span>

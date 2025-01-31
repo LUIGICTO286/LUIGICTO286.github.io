@@ -40,7 +40,7 @@ export const NavLinks: React.FC<NavLinksProps> = ({ links, onClick }) => {
                 width={24}
                 height={24}
                 stroke="var(--text-color)"
-                className="absolute inset-0 z-20 m-auto flex items-center justify-center"
+                className="absolute inset-0 z-50 m-auto flex items-center justify-center"
               />
             )}
 
