@@ -4,38 +4,39 @@
 
 @layer utilities {
   .social-external-links-responsive {
-    @apply text-sm sm:text-lg md:text-xl lg:text-2xl;
+    @apply text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl xxl:text-4xl;
   }
   .social-external-icons-responsive {
-    @apply w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11;
-  }  
+    @apply w-8 h-8 xs:w-9 xs:h-9 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 xl:w-12 xl:h-12 xxl:w-14 xxl:h-14;
+  }
   .nav-icons-responsive {
-    @apply w-10 h-10 sm:w-16 sm:h-16 md:w-16 md:h-16 lg:w-16 lg:h-16;
-  }    
+    @apply w-10 h-10 xs:w-12 xs:h-12 sm:w-16 sm:h-16 md:w-16 md:h-16 lg:w-16 lg:h-16 xl:w-[5rem] xl:h-[5rem] xxl:w-[6rem] xxl:h-[6rem];
+  }
   .nav-logo-responsive {
-    @apply w-10 h-10 sm:w-16 sm:h-16 md:w-16 md:h-16 lg:w-16 lg:h-16;
-  }      
+    @apply w-10 h-10 xs:w-12 xs:h-12 sm:w-16 sm:h-16 md:w-16 md:h-16 lg:w-16 lg:h-16 xl:w-18 xl:h-18 xxl:w-20 xxl:h-20;
+  }
   .nav-language-responsive {
-    @apply w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-10 lg:h-10;
-  }  
+    @apply w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-10 lg:h-10 xl:w-12 xl:h-12 xxl:w-14 xxl:h-14;
+  }
   .nav-links-responsive {
-    @apply text-2xl sm:text-4xl md:text-4xl lg:text-2xl;
-  }     
+    @apply text-2xl xs:text-3xl sm:text-4xl md:text-4xl lg:text-2xl xl:text-3xl xxl:text-4xl;
+  }
 }
+
 
 :root {
   font-family: 'Bebas Neue';
   line-height: 1.5;
   font-weight: 600;
 
-  --background-color: #ffffff;
+  --background-color: #000000;
   --text-color: #ffffff;
-  --primary-color: #b0adad;
-  --secondary-color: #040245;
-  
+  --primary-color: #000000;
+  --secondary-color: #ffffff;
+
   --navbar-bg: #180ea3;
   --text-color: #ffffff;
-  
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -46,5 +47,6 @@ html, body {
   padding: 0;
   margin: 0;
   border: 0;
+  background-color: var(--background-color);
   scroll-behavior: auto;
 }

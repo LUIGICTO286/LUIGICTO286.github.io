@@ -82,7 +82,12 @@ export const Navbar = () => {
         }`}
       >
         <div className="flex h-full flex-col items-center justify-center space-y-4 font-[Jersey]">
-          <NavLinks onClick={() => {setIsMobileNavOpen(false)}} links={navLinks} />
+          <NavLinks
+            onClick={() => {
+              setIsMobileNavOpen(false);
+            }}
+            links={navLinks}
+          />
         </div>
       </div>
     </>

@@ -13,10 +13,7 @@ type NavLinksProps = {
   onClick?: () => void;
 };
 
-export const NavLinks: React.FC<NavLinksProps> = ({ 
-  links, 
-  onClick
-}) => {
+export const NavLinks: React.FC<NavLinksProps> = ({ links, onClick }) => {
   const navigate = useNavigate(); // Initialize the navigate hook
 
   const handleRedirect = (link: { to: string; label: string; locked: boolean }) => {

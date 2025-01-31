@@ -1,7 +1,6 @@
-// src/Components/Links.tsx
 import React, { useState } from 'react';
 import { Modal } from './Modal'; // Assuming Modal is in the same directory
-import { FaInstagram, FaTiktok, FaGithub, FaEnvelope, FaDiscord, FaTelegramPlane } from 'react-icons/fa';
+import { FaTelegramPlane, FaTiktok, FaInstagram, FaGithub, FaEnvelope, FaDiscord } from 'react-icons/fa';
 import {
   CoinMarketCapIcon,
   XIcon,
@@ -22,17 +21,28 @@ export const Socials: React.FC = () => {
 
   const iconClass = 'social-external-icons-responsive';
 
-  const links = [
+  // Most used social links (visible outside modal)
+  const topLinks = [
+    {
+      href: 'https://x.com/sol_coin_luigi',
+      icon: <XIcon className={iconClass} />,
+      label: 'X (TWITTER)',
+    },
     {
       href: 'https://t.me/luigiportal2024',
       icon: <FaTelegramPlane className={iconClass} />,
       label: 'TELEGRAM',
     },
     {
-      href: 'https://x.com/sol_coin_luigi',
-      icon: <XIcon className={iconClass} />,
-      label: 'X (TWITTER)',
+      href: 'https://dexscreener.com/solana/awcxgpmbgvhyzgwe4refstfodghhrha12fhyjqbvqeul',
+      icon: <DexScreenerIcon className={iconClass} />,
+      label: 'DEXSCREENER',
     },
+  ];
+
+  // All social links (shown in modal)
+  const allLinks = [
+    ...topLinks,
     {
       href: 'https://www.tiktok.com/@luigi_sol_cto',
       icon: <FaTiktok className={iconClass} />,
@@ -49,7 +59,7 @@ export const Socials: React.FC = () => {
       label: 'INSTAGRAM',
     },
     {
-      href: 'https://www.xiaohongshu.com/user/profile/6788615a000000000801d814?xsec_token=YBI6oe95MdSTzJZJFAm8aSz2GWlj8EezKUKkWvWfyK5L8=&xsec_source=app_share&xhsshare=CopyLink&appuid=6788615a000000000801d814&apptime=1737018288&share_id=3540da2be6ab4a07accd577714edbda0',
+      href: 'https://www.xiaohongshu.com/user/profile/6788615a000000000801d814',
       icon: <XiaohongshuIcon className={iconClass} />,
       label: 'XIAOHONGSHU',
     },
@@ -71,29 +81,13 @@ export const Socials: React.FC = () => {
     {
       href: 'https://coinmarketcap.com/de/currencies/luigi-mangione/',
       icon: <CoinMarketCapIcon className={iconClass} />,
-      label: 'COINMARKETAP',
+      label: 'COINMARKETCAP',
     },
     {
       href: 'https://www.dextools.io/app/en/token/luigioctoofficial?t=1734470060661',
       icon: <DextToolsIcon className={iconClass} />,
       label: 'DEXTOOLS',
     },
-    {
-      href: 'https://dexscreener.com/solana/awcxgpmbgvhyzgwe4refstfodghhrha12fhyjqbvqeul',
-      icon: <DexScreenerIcon className={iconClass} />,
-      label: 'DEXSCREENER',
-    },
-    /*{
-      href: 'https://www.geckoterminal.com/solana/pools/AWcXGpmBGvhyZgWE4rEfSTFoDgHHrHa12fhyjqBvqeUL',
-      icon: (
-        <img
-          className={`contrast-100 grayscale filter transition duration-300 hover:contrast-200 hover:grayscale-0 ${iconClass}`}
-          src="./geckoterminal.svg"
-          alt=""
-        />
-      ),
-      label: 'GECKOTERMINAL',
-    },*/
   ];
 
   const handleModalToggle = () => {
@@ -102,16 +96,29 @@ export const Socials: React.FC = () => {
 
   return (
     <>
-      {/* Display the first 4 social links */}
-      <div className="fixed bottom-2 left-2 flex flex-wrap items-center justify-start">
-        {/* Button to open modal */}
+      {/* Display top social links outside modal */}
+      <div
+        className="fixed bottom-2 left-2 flex items-center space-x-2 rounded-xl bg-gray-100 p-2"
+        style={{ boxShadow: '0 0 5px #000' }}
+      >
+        {topLinks.map((link, index) => (
+          <a
+            key={index}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full p-2 transition duration-300 hover:scale-110 "
+            aria-label={link.label}
+          >
+            {link.icon}
+          </a>
+        ))}
+
+        {/* "More" button opens modal */}
         <button
           onClick={handleModalToggle}
-          className="m-1 transform rounded-full bg-gray-100 p-2 text-sm transition-transform duration-300 ease-in-out hover:scale-125 hover:bg-gray-200"
+          className="rounded-full p-2 transition duration-300 hover:scale-125 "
           aria-label="Show all socials"
-          style={{
-            boxShadow: '0 0 5px #000, 0 0 5px #000, 0 0 5px #000',
-          }}
         >
           <MoreIcon className={iconClass} />
         </button>
@@ -119,18 +126,18 @@ export const Socials: React.FC = () => {
 
       {/* Modal with all social links */}
       <Modal isOpen={isModalOpen} onClose={handleModalToggle} title={t('social.allsociallinks')}>
-        <div className={`grid ${window.innerWidth < 640 ? 'grid-cols-3 grid-rows-3 gap-4' : 'grid-cols-2 gap-4 p-4'}`}>
-          {links.map((link, index) => (
+        <div className="grid grid-cols-2 gap-4 p-4 sm:grid-cols-3">
+          {allLinks.map((link, index) => (
             <a
               key={index}
               href={link.href}
               target={link.href.startsWith('mailto') ? '_self' : '_blank'}
               rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-              className={`${linkClass}`}
+              className={linkClass}
               aria-label={link.label}
             >
-              <div>{link.icon}</div>
-              <span className="hidden sm:ml-2 sm:inline sm:p-2">{link.label}</span>
+              {link.icon}
+              <span className="ml-2 hidden sm:inline">{link.label}</span>
             </a>
           ))}
         </div>
