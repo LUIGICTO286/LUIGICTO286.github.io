@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { useTranslation } from 'react-i18next';
+import { ContractAddress } from './ContractAddress';
 
 export const Front: React.FC = () => {
   const { t } = useTranslation();
@@ -46,39 +47,34 @@ export const Front: React.FC = () => {
         backgroundPosition: 'center 40%',
       }}
     >
+      <div className="z-40 mb-32">
+        {/* Animated Text */}
+        <h1
+          ref={bigTextRef}
+          style={{
+            textShadow: '0 0 10px #000, 0 0 10px #000, 0 0 10px #000',
+          }}
+          className="font-[VT323] text-[6rem] text-[--text-color] sm:text-[8rem] lg:text-[8rem] xl:text-[12rem]"
+        >
+          $LUIGI
+        </h1>
+        <div ref={smallTextRef}>
+          <ContractAddress />
+        </div>
+      </div>
       <div
         className="absolute left-0 top-0 h-full w-full"
         style={{
           background: `
-                radial-gradient(
-                  ellipse at center, 
-                  rgba(0, 0, 0, 0) 20%, /* Bright center */
-                  rgba(0, 0, 0, 1) 60%, /* Darker toward the edges */
-                  rgba(0, 0, 0, 1) 100% /* Very dark at the outermost edges */
-                )
-              `,
+                  radial-gradient(
+                    ellipse at center, 
+                    rgba(0, 0, 0, 0) 20%, /* Bright center */
+                    rgba(0, 0, 0, 1) 60%, /* Darker toward the edges */
+                    rgba(0, 0, 0, 1) 100% /* Very dark at the outermost edges */
+                  )
+                `,
         }}
       ></div>
-
-      {/* Animated Text */}
-      <h1
-        ref={bigTextRef}
-        style={{
-          textShadow: '0 0 10px #000, 0 0 10px #000, 0 0 10px #000',
-        }}
-        className="font-[VT323] text-[8rem] text-[--text-color] sm:text-[8rem] lg:text-[8rem] xl:text-[12rem]"
-      >
-        $LUIGI
-      </h1>
-      <div
-        ref={smallTextRef}
-        style={{
-          textShadow: '0 0 10px #000, 0 0 10px #000, 0 0 10px #000',
-        }}
-        className="font-[VT323] text-[2rem] text-[--text-color] sm:text-[4rem] lg:text-[4rem] xl:text-[6rem]"
-      >
-        {t('front.front')}
-      </div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal } from './Modal'; // Assuming Modal is in the same directory
 import { FaTelegramPlane, FaTiktok, FaInstagram, FaGithub, FaEnvelope, FaDiscord } from 'react-icons/fa';
 import {
@@ -15,6 +15,16 @@ import { useTranslation } from 'react-i18next';
 export const Socials: React.FC = () => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 260);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 260);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const linkClass =
     'flex items-center p-1 m-1 text-[--primary-color] social-external-links-responsive hover:text-red-400 hover:scale-110 transition duration-300';
@@ -98,22 +108,25 @@ export const Socials: React.FC = () => {
     <>
       {/* Display top social links outside modal */}
       <div
-        className="fixed bottom-2 left-2 flex items-center space-x-2 rounded-xl bg-gray-100 p-2"
+        className="fixed bottom-2 left-2 z-50 flex items-center space-x-2 rounded-xl bg-gray-100 p-2"
         style={{ boxShadow: '0 0 5px #000' }}
       >
-        {topLinks.map((link, index) => (
-          <a
-            key={index}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full p-2 transition duration-300 hover:scale-110 "
-            aria-label={link.label}
-          >
-            {link.icon}
-          </a>
-        ))}
-
+        {!isSmallScreen && (
+          <div className="flex">
+            {topLinks.map((link, index) => (
+              <a
+                key={index}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full p-2 transition duration-300 hover:scale-110"
+                aria-label={link.label}
+              >
+                {link.icon}
+              </a>
+            ))}
+          </div>
+        )}
         {/* "More" button opens modal */}
         <button
           onClick={handleModalToggle}

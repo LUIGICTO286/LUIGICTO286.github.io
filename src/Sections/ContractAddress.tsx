@@ -8,7 +8,7 @@ export const ContractAddress = () => {
 
   // Font size settings for responsive design
   const a1FontSizes = 'text-[1.5rem] sm:text-[2rem] lg:text-[2.5rem] xl:text-[3rem]';
-  const buttonFontSizes = 'text-[1.5rem] sm:text-[1.8rem] lg:text-[2rem] xl:text-[2.5rem]';
+  const buttonFontSizes = 'text-[1rem] sm:text-[1rem] lg:text-[1rem] xl:text-[1rem]';
 
   // Function to handle copying to clipboard
   const copyToClipboard = () => {
@@ -17,15 +17,14 @@ export const ContractAddress = () => {
       setCopySuccess('Copied!');
       setTimeout(() => setCopySuccess(''), 2000); // Clear the message after 2 seconds
     } catch (err) {
-      setCopySuccess(`Failed to copy! ${contractAddress}`);
+      setCopySuccess('Failed to copy!');
     }
+    setTimeout(() => setCopySuccess(''), 2000);
   };
 
   return (
-    <div className="flex h-screen w-full flex-col items-center justify-center bg-[var(--background-color)] px-4 py-8">
-      <div className="flex max-w-md flex-col items-center justify-center space-y-4 rounded-lg bg-[var(--primary-color)] p-6 text-center shadow-lg">
-        <h2 className="font-[VT323] text-2xl text-[var(--secondary-color)] sm:text-3xl">Contract Address</h2>
-
+    <div className="flex flex-col items-center justify-center ">
+      <div className="flex flex-col items-center justify-center space-y-4 rounded-lg text-center ">
         {/* Display the contract address */}
         <div className="flex flex-col items-center space-y-2 sm:space-y-4">
           <a
@@ -41,17 +40,17 @@ export const ContractAddress = () => {
           {/* Copy to clipboard button */}
           <button
             onClick={copyToClipboard}
-            className="flex items-center justify-center rounded-full bg-[var(--secondary-color)] p-3 text-[var(--primary-color)] transition duration-200 hover:bg-opacity-80 focus:outline-none"
+            className="ml-2 flex items-center justify-center rounded-full bg-[var(--secondary-color)] p-3 text-[var(--primary-color)] transition duration-200 hover:bg-opacity-80 focus:outline-none"
             title="Copy to clipboard"
           >
             <FaCopy className={buttonFontSizes} />
           </button>
         </div>
 
-        {/* Success or failure message */}
+        {/* Success Message with Fade-Out Effect */}
         {copySuccess && (
           <span
-            className={`mt-2 font-[VT323] text-sm ${copySuccess === 'Copied!' ? 'text-green-500' : 'text-red-500'}`}
+            className={`absolute z-50 w-2/4 rounded-xl bg-white p-4 font-[VT323] text-sm shadow-xl ${copySuccess === 'Copied!' ? 'text-green-500' : 'text-red-500'}`}
           >
             {copySuccess}
           </span>

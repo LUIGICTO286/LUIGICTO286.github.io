@@ -5,7 +5,8 @@ export const LogoFlip: React.FC = () => {
   const logoRef = useRef<HTMLDivElement>(null);
 
   const bgColor = 'bg-yellow-700';
-  const sizeCoin = 'relative h-[48px] w-[48px] sm:w-[48px] sm:h-[48px] md:w-[64px] md:h-[64px] xl:w-[86px] xl:h-[86px]';
+  const sizeCoin =
+    'relative h-[48px] w-[48px] sm:w-[48px] sm:h-[48px] md:w-[64px] md:h-[64px] xl:w-[86px] xl:h-[86px] overflow-hidden ';
   const sizeImg =
     'h-[32px] w-[32px] sm:w-[32px] sm:h-[32px] md:w-[48px] md:h-[48px] xl:w-[64px] xl:h-[64px] overflow-hidden rounded-full';
   const minZ = 1;
@@ -18,7 +19,7 @@ export const LogoFlip: React.FC = () => {
     if (logoRef.current) {
       gsap.to(logoRef.current, {
         rotateY: 360,
-        duration: 4,
+        duration: 10,
         ease: '',
         repeat: -1,
         yoyo: true,
@@ -27,7 +28,7 @@ export const LogoFlip: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center overflow-hidden">
       <div className="perspective-[1200px]">
         <div
           ref={logoRef}
