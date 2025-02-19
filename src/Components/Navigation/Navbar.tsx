@@ -15,8 +15,8 @@ export const Navbar = () => {
   const navLinks = [
     { to: '/', label: t('navigation.home'), locked: false },
     { to: '/manifesto', label: t('navigation.manifesto'), locked: false },
-    { to: '/history', label: t('navigation.history'), locked: true },
-    { to: '/roadmap', label: t('navigation.roadmap'), locked: true },
+    //{ to: '/history', label: t('navigation.history'), locked: true },
+    //{ to: '/roadmap', label: t('navigation.roadmap'), locked: true },
     { to: '/how-to-buy', label: t('navigation.howtobuy'), locked: false },
     { to: '/whitepaper', label: t('navigation.whitepaper'), locked: false },
   ];

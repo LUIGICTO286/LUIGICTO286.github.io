@@ -31,7 +31,7 @@ export const ContractAddress = () => {
             href={solscanUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${a1FontSizes} break-words font-[VT323] text-[var(--secondary-color)] sm:text-xl md:text-2xl`}
+            className={`${a1FontSizes} break-words font-bebas text-[var(--secondary-color)] sm:text-xl md:text-2xl`}
             style={{ wordBreak: 'break-word' }}
           >
             {contractAddress}
@@ -50,7 +50,7 @@ export const ContractAddress = () => {
         {/* Success Message with Fade-Out Effect */}
         {copySuccess && (
           <span
-            className={`absolute w-2/4 rounded-xl bg-white p-4 font-[VT323] text-sm shadow-xl ${copySuccess === 'Copied!' ? 'text-green-500' : 'text-red-500'}`}
+            className={`absolute w-2/4 rounded-xl bg-white p-4 font-bebas text-sm shadow-xl ${copySuccess === 'Copied!' ? 'text-green-500' : 'text-red-500'}`}
           >
             {copySuccess}
           </span>

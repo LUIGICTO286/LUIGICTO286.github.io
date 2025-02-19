@@ -34,12 +34,12 @@ export const Socials: React.FC = () => {
   // Most used social links (visible outside modal)
   const topLinks = [
     {
-      href: 'https://x.com/sol_coin_luigi',
+      href: 'https://x.com/sol_luigi_coin',
       icon: <XIcon className={iconClass} />,
       label: 'X (TWITTER)',
     },
     {
-      href: 'https://t.me/luigiportal2024',
+      href: 'https://t.me/luigicto2024',
       icon: <FaTelegramPlane className={iconClass} />,
       label: 'TELEGRAM',
     },
@@ -94,7 +94,7 @@ export const Socials: React.FC = () => {
       label: 'COINMARKETCAP',
     },
     {
-      href: 'https://www.dextools.io/app/en/token/luigioctoofficial?t=1734470060661',
+      href: 'https://www.dextools.io/app/en/token/luigimangione',
       icon: <DextToolsIcon className={iconClass} />,
       label: 'DEXTOOLS',
     },

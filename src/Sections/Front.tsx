@@ -47,17 +47,29 @@ export const Front: React.FC = () => {
         backgroundPosition: 'center 40%',
       }}
     >
-      <div className=" z-10 mb-32">
-        {/* Animated Text */}
-        <h1
-          ref={bigTextRef}
-          style={{
-            textShadow: '0 0 10px #000, 0 0 10px #000, 0 0 10px #000',
-          }}
-          className="font-[VT323] text-[6rem] text-[--text-color] sm:text-[8rem] lg:text-[8rem] xl:text-[12rem]"
-        >
-          $LUIGI
-        </h1>
+      <div className=" z-10 mb-16">
+        <div ref={bigTextRef} className="flex items-baseline justify-center">
+          <h1
+            style={{
+              textShadow: '0 0 10px #000, 0 0 10px #000, 0 0 10px #000',
+            }}
+            className="font-bebas text-[6rem] leading-none text-[--text-color] sm:text-[8rem] lg:text-[8rem] xl:text-[12rem]"
+          >
+            $LUIGI
+          </h1>
+          <h2
+            className="ml-2 text-2xl leading-none text-[--text-color] sm:text-3xl lg:text-4xl xl:text-5xl"
+            style={{
+              verticalAlign: 'baseline',
+              position: 'relative',
+              bottom: '-0.1em',
+              textShadow: '0 0 10px #000, 0 0 10px #000, 0 0 10px #000',
+            }}
+          >
+            mangione
+          </h2>
+        </div>
+
         <div ref={smallTextRef}>
           <ContractAddress />
         </div>
