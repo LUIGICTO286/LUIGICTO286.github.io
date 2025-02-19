@@ -2,11 +2,9 @@
 
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { useTranslation } from 'react-i18next';
 import { ContractAddress } from './ContractAddress';
 
 export const Front: React.FC = () => {
-  const { t } = useTranslation();
   const bigTextRef = useRef<HTMLDivElement | null>(null);
   const smallTextRef = useRef<HTMLDivElement | null>(null);
 
