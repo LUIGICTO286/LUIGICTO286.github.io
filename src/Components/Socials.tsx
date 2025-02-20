@@ -94,7 +94,7 @@ export const Socials: React.FC = () => {
       label: 'COINMARKETCAP',
     },
     {
-      href: 'https://www.dextools.io/app/en/token/luigimangione',
+      href: 'https://www.dextools.io/app/en/token/luigioctoofficial',
       icon: <DextToolsIcon className={iconClass} />,
       label: 'DEXTOOLS',
     },
