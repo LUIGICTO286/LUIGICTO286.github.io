@@ -26,7 +26,7 @@ export const ContractAddress = () => {
     <div className="flex flex-col items-center justify-center ">
       <div className="flex flex-col items-center justify-center space-y-4 rounded-lg text-center ">
         {/* Display the contract address */}
-        <div className="flex flex-col items-center space-y-2 sm:space-y-4">
+        <div className="flex flex-row items-center space-y-2 sm:space-y-4">
           <a
             href={solscanUrl}
             target="_blank"
@@ -34,7 +34,7 @@ export const ContractAddress = () => {
             className={`${a1FontSizes} break-words font-bebas text-[var(--secondary-color)] sm:text-xl md:text-2xl`}
             style={{ wordBreak: 'break-word' }}
           >
-            {contractAddress}
+            CA: {contractAddress}
           </a>
 
           {/* Copy to clipboard button */}

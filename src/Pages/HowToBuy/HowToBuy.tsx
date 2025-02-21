@@ -35,8 +35,8 @@ export const HowToBuy: React.FC = () => {
                   <p className="text-center">Solflare</p>
                 </div>
                 <div>
-                  <img src={'/logos/exodus-logo.png'} alt="Exodus" className="walletLogo" />
-                  <p className="text-center">Exodus</p>
+                  <img src={'/logos/phantom.png'} alt="Exodus" className="walletLogo" />
+                  <p className="text-center">Phantom Wallet</p>
                 </div>
                 <div>
                   <img src={'/logos/atomic-logo.png'} alt="Atomic" className="walletLogo" />
@@ -78,13 +78,21 @@ export const HowToBuy: React.FC = () => {
             <div className="stepText">
               There are several DEXs to choose from:
               <div className="flex justify-center space-x-8 pt-4">
-                <a href="https://dexscreener.com" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://dexscreener.com/solana/awcxgpmbgvhyzgwe4refstfodghhrha12fhyjqbvqeul"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <img src={'/logos/dexscreener-logo.png'} alt="Dexscreener" className="walletLogo" />
                   <p className="text-center">Dexscreener</p>
                 </a>
-                <a href="https://www.geckoterminal.com/pl" target="_blank" rel="noopener noreferrer">
-                  <img src={'/logos/geckoterminal-logo.png'} alt="Geckoterminal" className="walletLogo" />
-                  <p className="text-center">Geckoterminal</p>
+                <a
+                  href="https://www.dextools.io/app/en/token/luigioctoofficial"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={'/logos/dextools.png'} alt="Geckoterminal" className="walletLogo" />
+                  <p className="text-center">Dextools</p>
                 </a>
               </div>
               You just have to make sure the wallet you selected in Step 2 is supported by the exchange.

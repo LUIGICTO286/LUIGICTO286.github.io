@@ -27,7 +27,7 @@ export const Socials: React.FC = () => {
   }, []);
 
   const linkClass =
-    'flex items-center p-1 m-1 text-[--primary-color] social-external-links-responsive hover:text-red-400 hover:scale-110 transition duration-300';
+    'flex items-center m-1 text-[--primary-color] social-external-links-responsive hover:text-red-400 hover:scale-110 transition duration-300';
 
   const iconClass = 'social-external-icons-responsive';
 
@@ -108,33 +108,31 @@ export const Socials: React.FC = () => {
     <>
       {/* Display top social links outside modal */}
       <div
-        className="fixed bottom-2 left-2 z-50 flex items-center space-x-2 rounded-xl bg-gray-100 p-2"
+        className="fixed bottom-2 z-50 flex flex-col items-center space-x-2 rounded-r-xl bg-gray-100 p-2 pl-2"
         style={{ boxShadow: '0 0 5px #000' }}
       >
-        {!isSmallScreen && (
-          <div className="flex">
-            {topLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full p-2 transition duration-300 hover:scale-110"
-                aria-label={link.label}
-              >
-                {link.icon}
-              </a>
-            ))}
-          </div>
-        )}
-        {/* "More" button opens modal */}
-        <button
-          onClick={handleModalToggle}
-          className="rounded-full p-2 transition duration-300 hover:scale-125 "
-          aria-label="Show all socials"
-        >
-          <MoreIcon className={iconClass} />
-        </button>
+        <div className="flex ">
+          {!isSmallScreen && (
+            <div className="flex">
+              {topLinks.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={linkClass}
+                  aria-label={link.label}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
+          )}
+          {/* "More" button opens modal */}
+          <button onClick={handleModalToggle} className={linkClass} aria-label="Show all socials">
+            <MoreIcon className={iconClass} />
+          </button>
+        </div>
       </div>
 
       {/* Modal with all social links */}

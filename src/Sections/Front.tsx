@@ -2,9 +2,11 @@
 
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { useTranslation } from 'react-i18next';
 import { ContractAddress } from './ContractAddress';
 
 export const Front: React.FC = () => {
+  const { t } = useTranslation();
   const bigTextRef = useRef<HTMLDivElement | null>(null);
   const smallTextRef = useRef<HTMLDivElement | null>(null);
 
@@ -46,7 +48,7 @@ export const Front: React.FC = () => {
       }}
     >
       <div className=" z-10 mb-16">
-        <div ref={bigTextRef} className="flex items-baseline justify-center">
+        <div ref={bigTextRef} className="flex items-baseline justify-start">
           <h1
             style={{
               textShadow: '0 0 10px #000, 0 0 10px #000, 0 0 10px #000',
@@ -60,13 +62,13 @@ export const Front: React.FC = () => {
             style={{
               verticalAlign: 'baseline',
               position: 'relative',
-              bottom: '-0.1em',
               textShadow: '0 0 10px #000, 0 0 10px #000, 0 0 10px #000',
             }}
           >
             mangione
           </h2>
         </div>
+        <hr className="mb-4 flex items-start border-4 border-gray-400" />
 
         <div ref={smallTextRef}>
           <ContractAddress />
