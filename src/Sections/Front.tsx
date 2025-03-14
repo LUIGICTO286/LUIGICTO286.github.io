@@ -44,10 +44,10 @@ export const Front: React.FC = () => {
       style={{
         backgroundImage: 'url(./luigi-walk.png)',
         backgroundSize: 'cover',
-        backgroundPosition: 'center 40%',
+        backgroundPosition: '50% 40%',
       }}
     >
-      <div className=" z-10 mb-16">
+      <div className=" z-10 mb-16 px-2">
         <div ref={bigTextRef} className="flex items-baseline justify-start">
           <h1
             style={{
@@ -78,13 +78,16 @@ export const Front: React.FC = () => {
         className="absolute left-0 top-0 h-full w-full"
         style={{
           background: `
-                  radial-gradient(
-                    ellipse at center, 
-                    rgba(0, 0, 0, 0) 20%, /* Bright center */
-                    rgba(0, 0, 0, 1) 60%, /* Darker toward the edges */
-                    rgba(0, 0, 0, 1) 100% /* Very dark at the outermost edges */
-                  )
-                `,
+          linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 0%, /* Black at the top */
+        rgba(0, 0, 0, 0.6) 10%, /* Getting lighter */
+        rgba(0, 0, 0, 0) 20%, /* Transparent in the middle */
+        rgba(0, 0, 0, 0) 60%, /* Staying transparent */
+        rgba(0, 0, 0, 0.6) 70%, /* Getting darker toward the bottom */
+        rgba(0, 0, 0, 1) 100% /* Black at the bottom */
+          )
+        `,
         }}
       ></div>
     </div>

@@ -1,24 +1,24 @@
 .contentWrapper {
-    color: white;
-    width: 100%;
-    max-width: 600px;
-    margin: 50px auto;
-    /* height: 400px; */
-    padding: 50px;
+  color: white;
+  width: 100%;
+  max-width: 600px;
+  margin: 50px auto;
+  /* height: 400px; */
+  padding: 50px;
 }
 
 .content {
-    /* overflow: hidden; */
-    /* height: 400px; */
-    position: relative;
+  /* overflow: hidden; */
+  /* height: 400px; */
+  position: relative;
 }
 .stepTitle {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    /* height: 20%; */
+  font-size: 2rem;
+  margin-bottom: 20px;
+  /* height: 20%; */
 }
 p {
-    /* height: 80%; */
+  /* height: 80%; */
 }
 /* 
 @media (max-width: 768px) {
@@ -31,56 +31,58 @@ p {
 } */
 
 .step {
-    width: 100%;
-    transition: transform 0.5s ease-in-out;
-    transform: translateX(-100%);
-    height: 100%;
-    /* position: absolute; */
-    top: 0;
-    left: 0;
-    padding-top: 20px;
-    
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
+  height: 100%;
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  padding-top: 20px;
 }
 
 .step.visible {
-    opacity: 1;
-    transform: translateX(0);
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .step.hidden {
-    opacity: 0;
-    transform: translateX(-100%);
+  opacity: 0;
+  transform: translateX(-100%);
 }
 
 .navButton {
-    color: black;
-    padding: 0.5rem 1rem;
-    margin-right: 1rem;
-    box-shadow: rgb(0, 0, 0) 0px 0px 5px, rgb(0, 0, 0) 0px 0px 5px, rgb(0, 0, 0) 0px 0px 5px;
+  color: black;
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  box-shadow:
+    rgb(0, 0, 0) 0px 0px 5px,
+    rgb(0, 0, 0) 0px 0px 5px,
+    rgb(0, 0, 0) 0px 0px 5px;
 }
 .navButton:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 .navButton:disabled {
-    color: grey;
-    background-color: darkgray;
-    cursor: not-allowed;
+  color: grey;
+  background-color: darkgray;
+  cursor: not-allowed;
 }
 
 .navigationButtons {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .walletLogo {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto;
-    display: block;
-    border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 50%;
 }

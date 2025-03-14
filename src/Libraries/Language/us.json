@@ -1,5 +1,5 @@
 {
-  "navigation":{
+  "navigation": {
     "pledge": "Pledge",
     "home": "Home",
     "manifesto": "Manifesto",
@@ -8,10 +8,10 @@
     "howtobuy": "How to buy",
     "whitepaper": "Whitepaper"
   },
-	"front": {
-		"front": "COMMUNITY TAKEOVER ON SOLANA"
-	},
-	"manifesto": {
+  "front": {
+    "front": "COMMUNITY TAKEOVER ON SOLANA"
+  },
+  "manifesto": {
     "h1": "$LUIGI - Manifesto",
     "line01": "To those who will fight for fairness, we’ll keep this short because we respect what you can do for this country.",
     "line02": "We are $LUIGI – the outcome of outrage transformed into action.",
@@ -37,8 +37,8 @@
     "line22": "We will build a system defined by fairness, access, and care – not corporate profits.",
     "line23": "We are $LUIGI – a symbol of justice, solidarity, hope, and the power of the people.",
     "line24": "The Flippening is upon us $LUIGI > $UHC",
-		"scrolltoreveal": "Click to reveal the $LUIGI Manifesto"
-	},
+    "scrolltoreveal": "Click to reveal the $LUIGI Manifesto"
+  },
   "social": {
     "allsociallinks": "All social links"
   }

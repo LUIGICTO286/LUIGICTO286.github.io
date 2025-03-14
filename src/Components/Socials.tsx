@@ -108,7 +108,7 @@ export const Socials: React.FC = () => {
     <>
       {/* Display top social links outside modal */}
       <div
-        className="fixed bottom-2 z-50 flex flex-col items-center space-x-2 rounded-r-xl bg-gray-100 p-2 pl-2"
+        className="fixed bottom-2 z-50 flex flex-col items-center space-x-2 rounded-r-xl bg-gray-100 p-2 pl-6"
         style={{ boxShadow: '0 0 5px #000' }}
       >
         <div className="flex ">
@@ -129,7 +129,7 @@ export const Socials: React.FC = () => {
             </div>
           )}
           {/* "More" button opens modal */}
-          <button onClick={handleModalToggle} className={linkClass} aria-label="Show all socials">
+          <button onClick={handleModalToggle} className={`${linkClass} pl-2`} aria-label="Show all socials">
             <MoreIcon className={iconClass} />
           </button>
         </div>
@@ -137,7 +137,7 @@ export const Socials: React.FC = () => {
 
       {/* Modal with all social links */}
       <Modal isOpen={isModalOpen} onClose={handleModalToggle} title={t('social.allsociallinks')}>
-        <div className="grid grid-cols-2 gap-4 p-4 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-6 p-2 sm:grid-cols-3">
           {allLinks.map((link, index) => (
             <a
               key={index}
@@ -148,7 +148,7 @@ export const Socials: React.FC = () => {
               aria-label={link.label}
             >
               {link.icon}
-              <span className="ml-2 hidden sm:inline">{link.label}</span>
+              <span className="ml-4 mr-2 sm:inline">{link.label}</span>
             </a>
           ))}
         </div>

@@ -3,12 +3,12 @@ import { FaCoins, FaHeart, FaMedkit, FaBullhorn } from 'react-icons/fa';
 export const Whitepaper = () => {
   const textStyle = 'text-white leading-relaxed'; // General text style
   const paragraphStyles = `${textStyle} text-[1rem] sm:text-[1.125rem] lg:text-[1.25rem] xl:text-[1.5rem]`; // Paragraph styles
-  const heading1Styles = `${textStyle} text-[1.5rem] sm:text-[2rem] lg:text-[3rem] xl:text-[4rem] font-bold`;
+  const heading1Styles = `${textStyle} text-[2rem] sm:text-[3rem] lg:text-[4rem] xl:text-[5rem] font-bold`;
   const heading2Styles = `${textStyle} text-[1.75rem] sm:text-[2.25rem] lg:text-[2.75rem] xl:text-[3.25rem] font-semibold`;
   const heading3Styles = `${textStyle} text-[1.5rem] sm:text-[2rem] lg:text-[2.5rem] xl:text-[3rem] font-medium`;
 
   return (
-    <div className="mt-[25vh] flex flex-col items-center justify-center px-4 text-left font-sans sm:px-8 lg:px-20">
+    <div className="mt-[8vh] flex flex-col items-center justify-center px-4 text-left font-sans sm:px-8 lg:px-20">
       <div className="whitepaper w-full max-w-5xl">
         {/* Introduction Section */}
         <section className="mb-16 rounded-lg py-8">

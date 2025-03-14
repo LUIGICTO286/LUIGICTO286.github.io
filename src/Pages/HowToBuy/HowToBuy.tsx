@@ -77,7 +77,7 @@ export const HowToBuy: React.FC = () => {
             <h2 className="stepTitle">Step 5: Choose a Decentralized Exchange (DEX)</h2>
             <div className="stepText">
               There are several DEXs to choose from:
-              <div className="flex justify-center space-x-8 pt-4">
+              <div className="flex justify-center space-x-8 py-4">
                 <a
                   href="https://dexscreener.com/solana/awcxgpmbgvhyzgwe4refstfodghhrha12fhyjqbvqeul"
                   target="_blank"
@@ -91,7 +91,7 @@ export const HowToBuy: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={'/logos/dextools.png'} alt="Geckoterminal" className="walletLogo" />
+                  <img src={'/logos/dextools.png'} alt="Dextools" className="walletLogo" />
                   <p className="text-center">Dextools</p>
                 </a>
               </div>
